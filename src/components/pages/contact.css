@@ -414,7 +414,7 @@ body:has(.callus) .about-hiring {
 body:has(.callus) .about-hiring h1 {
   max-width: 700px;
   margin: 0 !important;
-  color: #ffffff !important;
+  color: #000000 !important;
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.45rem) !important;
   line-height: 1.15;
