@@ -79,8 +79,45 @@ We Build High-Performing Teams
        
         <h1 className='recentjobs'>Recent Jobs</h1>
         
-        <p className='recentjobs-p'>Jobs couldn’t be loaded right now. Please try again later.</p>
-
+         <div className='industries-outerdiv'>
+        
+                            <div className='industries-innerdiv'>
+                               <img src={Consumer} alt=" from src " className='rounded w-full h-60' />
+        
+                               <h1 className='text-3xl font-bold  mt-10'>Consumer Durables</h1>
+        
+        
+                                <button onClick={()=>{
+                                window.location.href="./contact"
+                            }} className='message-btn'>Apply Jobs!</button>
+                            </div>
+                            <div className='industries-innerdiv'>
+        
+                                <img src={Telecom} alt=""  className='rounded w-full h-60' />
+        
+        
+                                <h1 className='text-3xl font-bold  mt-10  '>Manufacturing</h1>
+                                
+                                
+                                <button onClick={()=>{
+                                window.location.href="./contact"
+                            }} className='message-btn'>Apply Jobs!</button>
+                            </div>
+                            <div className='industries-innerdiv'>
+        
+                               <img src={Engineering} alt=""  className='rounded w-full h-60' />
+        
+        
+                                <h1 className='text-3xl font-bold  mt-10  '>Engineering</h1>
+                                
+                                
+                                <button onClick={()=>{
+                                window.location.href="./contact"
+                            }} className='message-btn'>Apply Jobs!</button>
+        
+        
+                            </div>
+                                    </div>
         
         <button onClick={()=>{
             window.location.href="./career"
