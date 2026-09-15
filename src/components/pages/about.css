@@ -1,0 +1,861 @@
+/* =========================================================
+   JOB4SURE â€” ABOUT PAGE REDESIGN
+   Replace the existing about.css with this file.
+   This stylesheet is intentionally scoped to About-page classes.
+   ========================================================= */
+
+:root {
+  --about-navy: #0b1736;
+  --about-blue: #2563eb;
+  --about-cyan: #06b6d4;
+  --about-ink: #172033;
+  --about-muted: #64748b;
+  --about-light: #f7faff;
+  --about-white: #ffffff;
+  --about-line: #e5eaf3;
+  --about-shadow: 0 20px 60px rgba(15, 23, 42, 0.10);
+  --about-shadow-hover: 0 28px 75px rgba(15, 23, 42, 0.16);
+}
+
+/* Page-safe reset */
+.about-page,
+.title-div,
+.all-img,
+.about-img,
+.about-heading,
+.about-div,
+.about-agency,
+.about-outerhiring,
+.about-hiring {
+  box-sizing: border-box;
+}
+
+.title-div *,
+.all-img *,
+.about-div *,
+.about-agency *,
+.about-outerhiring * {
+  box-sizing: border-box;
+}
+
+.title-div img,
+.all-img img {
+  max-width: 100%;
+}
+
+/* =========================================================
+   PAGE HERO / BREADCRUMB
+   ========================================================= */
+.title-div {
+  position: relative;
+  min-height: 245px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 24px;
+  text-align: center;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(34, 211, 238, 0.22), transparent 30%),
+    radial-gradient(circle at 88% 80%, rgba(37, 99, 235, 0.28), transparent 32%),
+    linear-gradient(135deg, #07122f 0%, #10275d 52%, #146a9c 100%);
+}
+
+.title-div::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  right: -120px;
+  top: -180px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: -1;
+}
+
+.title-div::after {
+  content: "";
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  left: -90px;
+  bottom: -130px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  z-index: -1;
+}
+
+.title-h1 {
+  margin: 0;
+  color: #fff;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(2.3rem, 5vw, 4.2rem);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.20);
+}
+
+.title-h3 {
+  position: relative;
+  margin: 20px 0 0;
+  padding: 8px 16px;
+  color: rgba(255, 255, 255, 0.86);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+}
+
+.title-h3::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 2px;
+  margin: 0 10px 3px 0;
+  border-radius: 99px;
+  background: #67e8f9;
+}
+
+/* =========================================================
+   MAIN ABOUT INTRO
+   ========================================================= */
+.all-img {
+  position: relative;
+  width: min(1180px, calc(100% - 40px));
+  margin: 72px auto 0;
+  overflow: visible;
+}
+
+.about-img {
+  position: relative;
+  width: 100%;
+  min-height: 640px;
+  overflow: hidden;
+  padding: 70px clamp(24px, 6vw, 78px);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 34px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(244, 248, 255, 0.96));
+  box-shadow: var(--about-shadow);
+}
+
+.about-img::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  top: -170px;
+  right: -110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(6, 182, 212, 0.04));
+  pointer-events: none;
+}
+
+.about-img::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 42%;
+  height: 5px;
+  border-radius: 0 99px 0 0;
+  background: linear-gradient(90deg, var(--about-blue), var(--about-cyan));
+}
+
+/* Small section label */
+.h3 {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 17px;
+  padding: 8px 14px;
+  border: 1px solid rgba(37, 99, 235, 0.14);
+  border-radius: 999px;
+  color: var(--about-blue);
+  background: rgba(37, 99, 235, 0.07);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.h3::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--about-cyan);
+  box-shadow: 0 0 0 5px rgba(6, 182, 212, 0.10);
+}
+
+/* =========================================================
+   â˜… BEAUTIFIED ABOUT-HEADING SECTION â˜…
+   ========================================================= */
+.about-heading {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  grid-template-areas:
+    "copy image"
+    "list image";
+  gap: 24px 58px;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+.about-heading::before {
+  content: "01";
+  position: absolute;
+  top: -28px;
+  right: 4px;
+  color: rgba(37, 99, 235, 0.055);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(5rem, 11vw, 10rem);
+  font-weight: 950;
+  line-height: 1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.about-h1 {
+  grid-area: copy;
+  max-width: 720px;
+  margin: 0;
+  color: var(--about-navy);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(2rem, 4.2vw, 4rem);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
+
+.about-h1::after {
+  content: "";
+  display: block;
+  width: 82px;
+  height: 5px;
+  margin-top: 24px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--about-blue), var(--about-cyan));
+  box-shadow: 0 7px 20px rgba(37, 99, 235, 0.22);
+}
+
+.home-global-p1 {
+  grid-area: copy;
+  max-width: 690px;
+  margin: 125px 0 0;
+  color: var(--about-muted);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(0.98rem, 1.35vw, 1.1rem);
+  line-height: 1.85;
+  font-weight: 500;
+}
+
+/* Hide the old forced desktop line break effect */
+.home-global-p1 br {
+  display: none;
+}
+
+.global-inner-img {
+  grid-area: image;
+  align-self: stretch;
+  width: 100%;
+  min-height: 475px;
+  height: 100%;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+  border: 8px solid #fff;
+  border-radius: 30px;
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.17);
+  transform: rotate(1.2deg);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.global-inner-img:hover {
+  transform: rotate(0) translateY(-5px);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.22);
+}
+
+.about-ul {
+  grid-area: list;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-ul li {
+  position: relative;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
+  padding: 13px 15px 13px 43px;
+  border: 1px solid var(--about-line);
+  border-radius: 15px;
+  color: #334155;
+  background: rgba(255, 255, 255, 0.78);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.87rem;
+  line-height: 1.45;
+  font-weight: 600;
+  box-shadow: 0 7px 22px rgba(15, 23, 42, 0.045);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-ul li::before {
+  content: "âœ“";
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--about-blue), var(--about-cyan));
+  font-size: 0.75rem;
+  font-weight: 900;
+  box-shadow: 0 5px 13px rgba(37, 99, 235, 0.23);
+}
+
+.about-ul li:hover {
+  transform: translateY(-3px);
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 0 13px 30px rgba(15, 23, 42, 0.09);
+}
+
+/* Remove spacing created by <br> tags after list items */
+.about-ul br {
+  display: none;
+}
+
+/* =========================================================
+   VALUE CARDS
+   ========================================================= */
+.about-div {
+  width: min(1180px, calc(100% - 40px));
+  margin: 76px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.about-div > .about-div1,
+.about-div > .about-div2,
+.about-div > .about-div3 {
+  position: relative;
+  width: auto;
+  min-height: 235px;
+  height: auto;
+  margin: 0;
+  padding: 32px 28px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  border-radius: 26px;
+  color: var(--about-ink);
+  background: #fff;
+  box-shadow: var(--about-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-div > .about-div1::before,
+.about-div > .about-div2::before,
+.about-div > .about-div3::before {
+  content: "";
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  top: -50px;
+  right: -45px;
+  border-radius: 50%;
+  opacity: 0.16;
+}
+
+.about-div > .about-div1::before { background: #06b6d4; }
+.about-div > .about-div2::before { background: #2563eb; }
+.about-div > .about-div3::before { background: #7c3aed; }
+
+.about-div > .about-div1:hover,
+.about-div > .about-div2:hover,
+.about-div > .about-div3:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--about-shadow-hover);
+}
+
+.about-div1 h1,
+.about-div2 h1,
+.about-div3 h1 {
+  position: relative;
+  margin: 0;
+  color: var(--about-navy);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 1.3rem;
+  line-height: 1.25;
+  font-weight: 850;
+}
+
+.about-div1 h2,
+.about-div2 h2,
+.about-div3 h2 {
+  position: relative;
+  margin: 17px 0 0;
+  color: var(--about-muted);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+.about-div:has(.home-card-div1) {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 24px;
+}
+
+.about-div > .home-card-div1,
+.about-div > .home-card-div2,
+.about-div > .home-card-div3,
+.about-div > .home-card-div4 {
+  position: relative;
+  width: auto;
+  height: auto;
+  min-height: 145px;
+  margin: 0;
+  padding: 27px 23px;
+  overflow: hidden;
+  border: 1px solid var(--about-line);
+  border-radius: 22px;
+  background: #fff;
+  color: var(--about-ink);
+  box-shadow: 0 13px 38px rgba(15, 23, 42, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-div > .home-card-div1::after,
+.about-div > .home-card-div2::after,
+.about-div > .home-card-div3::after,
+.about-div > .home-card-div4::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--about-blue), var(--about-cyan));
+}
+
+.about-div > .home-card-div1:hover,
+.about-div > .home-card-div2:hover,
+.about-div > .home-card-div3:hover,
+.about-div > .home-card-div4:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+}
+
+.home-card-div1 h1,
+.home-card-div2 h1,
+.home-card-div3 h1,
+.home-card-div4 h1 {
+  margin: 0;
+  color: var(--about-blue) !important;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 2.25rem;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.home-card-div1 h2,
+.home-card-div2 h2,
+.home-card-div3 h2,
+.home-card-div4 h2 {
+  margin: 13px 0 0;
+  color: var(--about-muted) !important;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+/* =========================================================
+   CONTACT CTA
+   ========================================================= */
+.about-agency {
+  position: relative;
+  width: min(1180px, calc(100% - 40px));
+  min-height: 300px;
+  margin: 100px auto 0;
+  padding: 55px clamp(24px, 6vw, 75px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 32px;
+  text-align: left;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(103, 232, 249, 0.25), transparent 30%),
+    linear-gradient(135deg, #091735 0%, #123d85 55%, #0b7894 100%);
+  box-shadow: 0 25px 65px rgba(15, 23, 42, 0.18);
+}
+
+.about-agency::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  right: -110px;
+  bottom: -180px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+}
+
+.about-agency .text-emerald-400 {
+  position: relative;
+  margin: 0;
+  color: #67e8f9 !important;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.about-agency h1 {
+  position: relative;
+  max-width: 720px;
+  margin: 14px 0 0 !important;
+  color: #fff !important;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.8rem, 4vw, 3.2rem) !important;
+  line-height: 1.08;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+
+.about-agency button {
+  position: relative;
+  width: auto !important;
+  min-width: 150px;
+  height: auto !important;
+  margin: 26px 0 0 !important;
+  padding: 13px 23px;
+  border: 0;
+  border-radius: 999px;
+  color: #082044;
+  background: #fff;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.13);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-agency button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 17px 32px rgba(0, 0, 0, 0.20);
+}
+
+/* =========================================================
+   FINAL HIRING STRIP
+   ========================================================= */
+.about-outerhiring {
+  width: 100%;
+  margin-top: 80px;
+  padding: 72px 20px;
+  background: #f3f7fd;
+  border-top: 1px solid var(--about-line);
+}
+
+.about-hiring {
+  width: min(1180px, 100%);
+  min-height: 150px;
+  margin: 0 auto;
+  padding: 35px clamp(24px, 5vw, 55px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  border: 1px solid rgba(37, 99, 235, 0.10);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 16px 45px rgba(15, 23, 42, 0.07);
+}
+
+.about-hiring h1 {
+  margin: 0 !important;
+  color: var(--about-navy) !important;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.4rem) !important;
+  line-height: 1.15;
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+.about-hiringbtn {
+  flex: 0 0 auto;
+  width: auto !important;
+  min-width: 155px;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 14px 24px;
+  border: 0 !important;
+  border-radius: 999px !important;
+  color: #fff;
+  background: linear-gradient(135deg, var(--about-blue), #1d4ed8);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem !important;
+  font-weight: 800;
+  box-shadow: 0 12px 26px rgba(37, 99, 235, 0.24);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-hiringbtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 17px 34px rgba(37, 99, 235, 0.32);
+}
+
+/* =========================================================
+   RESPONSIVE â€” TABLET
+   ========================================================= */
+@media (max-width: 980px) {
+  .all-img {
+    width: min(100% - 30px, 760px);
+    margin-top: 45px;
+  }
+
+  .about-img {
+    padding: 48px 34px;
+  }
+
+  .about-heading {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "image"
+      "list";
+    gap: 30px;
+  }
+
+  .home-global-p1 {
+    margin-top: 0;
+  }
+
+  .global-inner-img {
+    min-height: 360px;
+    max-height: 430px;
+    transform: none;
+  }
+
+  .about-ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-div {
+    width: min(100% - 30px, 760px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-div:has(.home-card-div1) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-agency {
+    width: min(100% - 30px, 760px);
+  }
+
+  .about-hiring {
+    width: min(100%, 760px);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE â€” MOBILE
+   ========================================================= */
+@media (max-width: 640px) {
+  .title-div {
+    min-height: 195px;
+    padding: 35px 18px;
+  }
+
+  .title-h1 {
+    font-size: 2.35rem;
+  }
+
+  .title-h3 {
+    margin-top: 15px;
+    font-size: 0.72rem;
+  }
+
+  .all-img {
+    width: calc(100% - 22px);
+    margin-top: 28px;
+  }
+
+  .about-img {
+    min-height: auto;
+    padding: 34px 18px 38px;
+    border-radius: 24px;
+  }
+
+  .h3 {
+    margin-bottom: 14px;
+    font-size: 0.68rem;
+  }
+
+  .about-heading {
+    gap: 24px;
+  }
+
+  .about-heading::before {
+    top: 30px;
+    font-size: 5.5rem;
+  }
+
+  .about-h1 {
+    font-size: clamp(1.9rem, 10vw, 2.55rem);
+    line-height: 1.08;
+  }
+
+  .about-h1::after {
+    width: 62px;
+    height: 4px;
+    margin-top: 18px;
+  }
+
+  .home-global-p1 {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .global-inner-img {
+    min-height: 260px;
+    max-height: 330px;
+    border-width: 5px;
+    border-radius: 22px;
+  }
+
+  .about-ul {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .about-ul li {
+    min-height: 52px;
+    padding: 11px 12px 11px 41px;
+    font-size: 0.82rem;
+  }
+
+  .about-div,
+  .about-div:has(.home-card-div1) {
+    width: calc(100% - 22px);
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .about-div > .about-div1,
+  .about-div > .about-div2,
+  .about-div > .about-div3 {
+    min-height: 190px;
+    padding: 27px 23px;
+  }
+
+  .about-div > .home-card-div1,
+  .about-div > .home-card-div2,
+  .about-div > .home-card-div3,
+  .about-div > .home-card-div4 {
+    min-height: 125px;
+    padding: 24px 21px;
+  }
+
+  .home-card-div1 h1,
+  .home-card-div2 h1,
+  .home-card-div3 h1,
+  .home-card-div4 h1 {
+    font-size: 2rem;
+  }
+
+  .about-agency {
+    width: calc(100% - 22px);
+    min-height: 285px;
+    margin-top: 55px;
+    padding: 38px 24px;
+    border-radius: 25px;
+  }
+
+  .about-agency h1 {
+    font-size: 1.85rem !important;
+  }
+
+  .about-outerhiring {
+    margin-top: 50px;
+    padding: 45px 11px;
+  }
+
+  .about-hiring {
+    min-height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 23px;
+    border-radius: 22px;
+    gap: 22px;
+  }
+
+  .about-hiringbtn {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .about-h1 {
+    font-size: 1.75rem;
+  }
+
+  .home-global-p1 {
+    font-size: 0.87rem;
+  }
+
+  .global-inner-img {
+    min-height: 220px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY / MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .global-inner-img,
+  .about-div > .about-div1,
+  .about-div > .about-div2,
+  .about-div > .about-div3,
+  .about-div > .home-card-div1,
+  .about-div > .home-card-div2,
+  .about-div > .home-card-div3,
+  .about-div > .home-card-div4,
+  .about-ul li,
+  .about-agency button,
+  .about-hiringbtn {
+    transition: none;
+  }
+}

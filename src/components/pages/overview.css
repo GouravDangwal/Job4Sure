@@ -1,0 +1,796 @@
+@import "tailwindcss";
+
+
+
+
+/* =========================================================
+   JOB4SURE â€” OVERVIEW PAGE REDESIGN
+   CSS ONLY â€” JSX remains unchanged
+   ========================================================= */
+
+/* ---------- Page Base ---------- */
+.overview-page,
+.overview-page * {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.overview-page {
+  width: 100%;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(37, 99, 235, .08), transparent 28%),
+    radial-gradient(circle at 90% 45%, rgba(16, 185, 129, .07), transparent 25%),
+    #f7f9fc;
+  color: #172033;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+/* ---------- Existing JSX has a wrapper without a class.
+   The selectors below target Overview-specific classes only. ---------- */
+
+/* ---------- Hero / Page Title ---------- */
+.title-div {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 220px;
+  padding: 68px 24px 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(7, 25, 66, .96), rgba(20, 71, 145, .88)),
+    url("./components/background.jpg") center/cover no-repeat;
+  box-shadow: 0 15px 45px rgba(15, 35, 75, .16);
+}
+
+.title-div::before,
+.title-div::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.title-div::before {
+  width: 260px;
+  height: 260px;
+  right: -90px;
+  top: -100px;
+  background: rgba(255, 255, 255, .08);
+}
+
+.title-div::after {
+  width: 190px;
+  height: 190px;
+  left: -80px;
+  bottom: -100px;
+  background: rgba(52, 211, 153, .10);
+}
+
+.title-h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1;
+  font-weight: 850;
+  letter-spacing: -.04em;
+  text-transform: capitalize;
+  text-shadow: 0 8px 25px rgba(0, 0, 0, .2);
+}
+
+.title-h3 {
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, .76);
+  font-size: .98rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+/* ---------- Main Overview Intro ---------- */
+.overview-div1 {
+  width: min(1180px, calc(100% - 48px));
+  margin: 72px auto 0;
+  padding: 58px 58px 52px;
+  border-radius: 30px;
+  background:
+    linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid rgba(148, 163, 184, .18);
+  box-shadow:
+    0 25px 70px rgba(30, 64, 175, .10),
+    0 5px 20px rgba(15, 23, 42, .04);
+  overflow: hidden;
+  position: relative;
+}
+
+.overview-div1::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  top: -110px;
+  right: -70px;
+  background: rgba(37, 99, 235, .07);
+}
+
+.overview-h1 {
+  position: relative;
+  margin: 0 0 35px;
+  max-width: 850px;
+  color: #102a63;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+  font-weight: 850;
+  letter-spacing: -.045em;
+}
+
+.overview-h1::after {
+  content: "";
+  display: block;
+  width: 65px;
+  height: 5px;
+  margin-top: 18px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #2563eb, #10b981);
+}
+
+.overview-p {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+  gap: 45px;
+  align-items: center;
+}
+
+.overview-p1,
+.overview-p2,
+.overview-owner-p,
+.overview-owner-p2 {
+  color: #536174;
+  font-size: 1.03rem;
+  line-height: 1.85;
+  letter-spacing: .005em;
+}
+
+.overview-p1 {
+  margin: 0;
+}
+
+.overview-p2 {
+  max-width: 940px;
+  margin: 30px 0 0;
+  padding: 25px 30px;
+  border-left: 4px solid #2563eb;
+  border-radius: 0 18px 18px 0;
+  background: #f1f6ff;
+  color: #34445c;
+  font-style: normal;
+}
+
+.overview-p-img {
+  width: 100%;
+  height: 330px;
+  margin: 0;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, .15);
+  transition: transform .45s ease, box-shadow .45s ease;
+}
+
+.overview-p-img:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 28px 55px rgba(15, 23, 42, .19);
+}
+
+/* ---------- Three Value Cards ---------- */
+.overview-div2 {
+  width: min(1180px, calc(100% - 48px));
+  margin: 55px auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.overview-box-div1,
+.overview-box-div2,
+.overview-box-div3 {
+  position: relative;
+  min-height: 230px;
+  margin: 0 !important;
+  padding: 34px 30px !important;
+  border: 1px solid rgba(148, 163, 184, .18) !important;
+  border-radius: 25px !important;
+  overflow: hidden;
+  background: #fff !important;
+  color: #182236 !important;
+  box-shadow: 0 15px 40px rgba(15, 23, 42, .08);
+  transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+}
+
+.overview-box-div1::before,
+.overview-box-div2::before,
+.overview-box-div3::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+}
+
+.overview-box-div2::before {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.overview-box-div3::before {
+  background: linear-gradient(90deg, #7c3aed, #a78bfa);
+}
+
+.overview-box-div1:hover,
+.overview-box-div2:hover,
+.overview-box-div3:hover {
+  transform: translateY(-9px);
+  border-color: rgba(37, 99, 235, .18) !important;
+  box-shadow: 0 24px 50px rgba(15, 23, 42, .13);
+}
+
+.overview-box-div1 h1,
+.overview-box-div2 h1,
+.overview-box-div3 h1 {
+  margin: 10px 0 18px !important;
+  color: #132b5c !important;
+  font-size: 1.55rem !important;
+  line-height: 1.2;
+  font-weight: 800 !important;
+}
+
+.overview-box-div1 p,
+.overview-box-div2 p,
+.overview-box-div3 p {
+  margin: 0 !important;
+  color: #64748b !important;
+  font-size: .98rem;
+  line-height: 1.7;
+}
+
+/* ---------- Founder Section ---------- */
+.overview-owner-h1 {
+  width: min(1180px, calc(100% - 48px));
+  margin: 95px auto 35px;
+  color: #102a63;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  font-weight: 850;
+  letter-spacing: -.04em;
+  text-align: center;
+}
+
+.overview-owner-h1::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 5px;
+  margin: 17px auto 0;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #2563eb, #10b981);
+}
+
+.overview-owner {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+  gap: 50px;
+  align-items: center;
+  border-radius: 30px;
+  background:
+    linear-gradient(135deg, #0c2350 0%, #123b7b 100%);
+  box-shadow: 0 25px 65px rgba(10, 35, 80, .20);
+  overflow: hidden;
+  position: relative;
+}
+
+.overview-owner::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  right: -160px;
+  top: -150px;
+  background: rgba(255,255,255,.06);
+}
+
+.overview-owner-p {
+  position: relative;
+  margin: 0;
+  color: rgba(255,255,255,.88);
+  font-size: 1.03rem;
+  line-height: 1.85;
+  font-weight: 500;
+}
+
+.overview-owner-img {
+  width: 100%;
+  height: 360px;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 22px;
+  display: block;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, .25);
+}
+
+.overview-owner-p2 {
+  width: min(1180px, calc(100% - 48px));
+  margin: 28px auto 0;
+  padding: 0 15px 0 25px;
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+/* ---------- Stats ---------- */
+.about-div {
+  width: min(1180px, calc(100% - 48px));
+  margin: 80px auto 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.home-card-div1,
+.home-card-div2,
+.home-card-div3,
+.home-card-div4 {
+  position: relative;
+  min-height: 185px;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 32px 25px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid rgba(148, 163, 184, .17) !important;
+  border-radius: 24px !important;
+  background: #fff !important;
+  color: #172033 !important;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, .07);
+  overflow: hidden;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.home-card-div1::after,
+.home-card-div2::after,
+.home-card-div3::after,
+.home-card-div4::after {
+  content: "";
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  right: -25px;
+  bottom: -28px;
+  background: rgba(37, 99, 235, .08);
+}
+
+.home-card-div2::after { background: rgba(16, 185, 129, .09); }
+.home-card-div3::after { background: rgba(124, 58, 237, .09); }
+.home-card-div4::after { background: rgba(245, 158, 11, .10); }
+
+.home-card-div1:hover,
+.home-card-div2:hover,
+.home-card-div3:hover,
+.home-card-div4:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, .12);
+}
+
+.home-card-div1 h1,
+.home-card-div2 h1,
+.home-card-div3 h1,
+.home-card-div4 h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0 !important;
+  color: #2563eb !important;
+  font-size: 2.35rem !important;
+  line-height: 1;
+  font-weight: 850 !important;
+}
+
+.home-card-div2 h1 { color: #059669 !important; }
+.home-card-div3 h1 { color: #7c3aed !important; }
+.home-card-div4 h1 { color: #d97706 !important; }
+
+.home-card-div1 h2,
+.home-card-div2 h2,
+.home-card-div3 h2,
+.home-card-div4 h2 {
+  position: relative;
+  z-index: 1;
+  margin: 13px 0 0 !important;
+  color: #526176;
+  font-size: .95rem !important;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+/* ---------- CTA ---------- */
+.about-agency {
+  width: min(1180px, calc(100% - 48px)) !important;
+  min-height: 340px;
+  height: auto !important;
+  margin: 100px auto 0 !important;
+  padding: 75px 35px !important;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 32px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(52,211,153,.16), transparent 24%),
+    radial-gradient(circle at 85% 70%, rgba(96,165,250,.18), transparent 26%),
+    linear-gradient(135deg, #071b3a, #123d7d);
+  box-shadow: 0 28px 70px rgba(9, 36, 78, .22);
+}
+
+.about-agency::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 50%;
+  right: -90px;
+  top: -130px;
+  z-index: -1;
+}
+
+.about-agency h3 {
+  margin: 0 !important;
+  color: #6ee7b7 !important;
+  font-size: .9rem !important;
+  font-weight: 800 !important;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.about-agency h1 {
+  max-width: 850px;
+  margin: 22px auto 0 !important;
+  color: #fff !important;
+  font-size: clamp(1.9rem, 4vw, 3rem) !important;
+  line-height: 1.18;
+  font-weight: 850 !important;
+}
+
+.about-agency button {
+  margin: 32px 0 0 !important;
+  width: 150px !important;
+  height: 52px !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, #fff, #eaf2ff) !important;
+  color: #123a76 !important;
+  font-size: .95rem !important;
+  font-weight: 800;
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.about-agency button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 35px rgba(0,0,0,.25);
+}
+
+/* ---------- Hiring Banner ---------- */
+.about-outerhiring {
+  width: min(1180px, calc(100% - 48px)) !important;
+  min-height: 155px;
+  height: auto !important;
+  margin: 35px auto 80px !important;
+  padding: 32px 42px !important;
+  border: 1px solid rgba(37, 99, 235, .10);
+  border-radius: 25px;
+  background: linear-gradient(135deg, #eef5ff, #f5fbfa) !important;
+  box-shadow: 0 15px 40px rgba(15, 23, 42, .06);
+}
+
+.about-hiring {
+  min-height: 90px;
+  height: auto !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.about-hiring h1 {
+  margin: 0 !important;
+  color: #143a76 !important;
+  font-size: clamp(1.45rem, 3vw, 2rem) !important;
+  line-height: 1.25;
+  font-weight: 800 !important;
+}
+
+.about-hiringbtn {
+  flex: 0 0 auto;
+  width: 155px !important;
+  height: 52px !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 14px !important;
+  background: linear-gradient(135deg, #2563eb, #174ea6) !important;
+  color: #fff !important;
+  font-size: .95rem !important;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(37,99,235,.25);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.about-hiringbtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 17px 32px rgba(37,99,235,.30);
+}
+
+/* ---------- Reveal Animation ---------- */
+@keyframes overviewReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overview-h1,
+.overview-p1,
+.overview-p-img,
+.overview-p2,
+.overview-box-div1,
+.overview-box-div2,
+.overview-box-div3,
+.overview-owner-h1,
+.overview-owner,
+.overview-owner-p2,
+.home-card-div1,
+.home-card-div2,
+.home-card-div3,
+.home-card-div4,
+.about-agency,
+.about-outerhiring {
+  animation: overviewReveal .7s ease both;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+  .overview-div1,
+  .overview-div2,
+  .overview-owner,
+  .about-div,
+  .about-agency,
+  .about-outerhiring,
+  .overview-owner-p2 {
+    width: min(100% - 32px, 700px);
+  }
+
+  .overview-div1 {
+    padding: 40px 32px;
+  }
+
+  .overview-p,
+  .overview-owner {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-p-img,
+  .overview-owner-img {
+    height: 310px;
+  }
+
+  .overview-div2 {
+    grid-template-columns: 1fr;
+  }
+
+  .about-div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .overview-owner {
+    padding: 35px;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .title-div {
+    min-height: 185px;
+    padding: 50px 18px 42px;
+  }
+
+  .title-h1 {
+    font-size: 2.35rem;
+  }
+
+  .title-h3 {
+    margin-top: 12px;
+    font-size: .82rem;
+  }
+
+  .overview-div1,
+  .overview-div2,
+  .overview-owner,
+  .about-div,
+  .about-agency,
+  .about-outerhiring,
+  .overview-owner-p2 {
+    width: calc(100% - 28px);
+  }
+
+  .overview-div1 {
+    margin-top: 35px;
+    padding: 32px 22px;
+    border-radius: 23px;
+  }
+
+  .overview-h1 {
+    font-size: 1.9rem;
+    margin-bottom: 28px;
+  }
+
+  .overview-p {
+    gap: 25px;
+  }
+
+  .overview-p1,
+  .overview-p2,
+  .overview-owner-p,
+  .overview-owner-p2 {
+    font-size: .93rem;
+    line-height: 1.75;
+  }
+
+  .overview-p-img,
+  .overview-owner-img {
+    height: 240px;
+    border-radius: 18px;
+  }
+
+  .overview-p2 {
+    padding: 20px;
+  }
+
+  .overview-div2 {
+    margin-top: 30px;
+    gap: 15px;
+  }
+
+  .overview-box-div1,
+  .overview-box-div2,
+  .overview-box-div3 {
+    min-height: 195px;
+    padding: 28px 23px !important;
+  }
+
+  .overview-owner-h1 {
+    width: calc(100% - 28px);
+    margin: 65px auto 28px;
+    font-size: 1.85rem;
+  }
+
+  .overview-owner {
+    padding: 25px 20px;
+    border-radius: 23px;
+    gap: 25px;
+  }
+
+  .overview-owner-p2 {
+    margin-top: 20px;
+    padding: 0 8px;
+  }
+
+  .about-div {
+    margin-top: 50px !important;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .home-card-div1,
+  .home-card-div2,
+  .home-card-div3,
+  .home-card-div4 {
+    min-height: 150px;
+  }
+
+  .about-agency {
+    min-height: 300px;
+    margin-top: 65px !important;
+    padding: 55px 20px !important;
+    border-radius: 24px;
+  }
+
+  .about-agency h1 {
+    font-size: 1.85rem !important;
+  }
+
+  .about-outerhiring {
+    margin-top: 22px !important;
+    margin-bottom: 45px !important;
+    padding: 25px 20px !important;
+  }
+
+  .about-hiring {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-hiringbtn {
+    width: 145px !important;
+  }
+}
+
+/* ---------- Small Phones ---------- */
+@media (max-width: 380px) {
+  .title-h1 {
+    font-size: 2rem;
+  }
+
+  .overview-div1,
+  .overview-owner {
+    padding: 24px 17px;
+  }
+
+  .overview-h1 {
+    font-size: 1.65rem;
+  }
+
+  .overview-box-div1 h1,
+  .overview-box-div2 h1,
+  .overview-box-div3 h1 {
+    font-size: 1.3rem !important;
+  }
+
+  .about-agency h1 {
+    font-size: 1.55rem !important;
+  }
+}
+
+/* ---------- Accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .overview-h1,
+  .overview-p1,
+  .overview-p-img,
+  .overview-p2,
+  .overview-box-div1,
+  .overview-box-div2,
+  .overview-box-div3,
+  .overview-owner-h1,
+  .overview-owner,
+  .overview-owner-p2,
+  .home-card-div1,
+  .home-card-div2,
+  .home-card-div3,
+  .home-card-div4,
+  .about-agency,
+  .about-outerhiring {
+    animation: none !important;
+    transition: none !important;
+  }
+}

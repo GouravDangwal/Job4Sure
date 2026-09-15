@@ -1,0 +1,638 @@
+@import "tailwindcss";
+
+
+/* =========================================================
+   JOB4SURE â€” CONTACT PAGE REDESIGN
+   CSS ONLY â€” JSX DOES NOT NEED TO CHANGE
+   ========================================================= */
+
+/* Scope the redesign to the Contact page so other pages remain untouched. */
+body:has(.callus) {
+  --contact-primary: #2563eb;
+  --contact-primary-dark: #1d4ed8;
+  --contact-accent: #06b6d4;
+  --contact-ink: #0f172a;
+  --contact-muted: #64748b;
+  --contact-border: rgba(148, 163, 184, 0.25);
+  --contact-card: rgba(255, 255, 255, 0.88);
+  --contact-bg: #f7faff;
+
+  background:
+    radial-gradient(circle at 8% 18%, rgba(37, 99, 235, 0.10), transparent 28rem),
+    radial-gradient(circle at 92% 42%, rgba(6, 182, 212, 0.10), transparent 30rem),
+    linear-gradient(180deg, #f8fbff 0%, #eef5ff 48%, #f8fbff 100%);
+  color: var(--contact-ink);
+  overflow-x: hidden;
+}
+
+/* ---------------------------------------------------------
+   PAGE TITLE / BREADCRUMB
+   --------------------------------------------------------- */
+body:has(.callus) .title-div {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 210px;
+  height: auto;
+  padding: 58px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(29, 78, 216, 0.92)),
+    url("./components/background.jpg");
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+}
+
+body:has(.callus) .title-div::before {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  right: -100px;
+  top: -180px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.18);
+  filter: blur(5px);
+  z-index: -1;
+}
+
+body:has(.callus) .title-div::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  left: -110px;
+  bottom: -160px;
+  border-radius: 50%;
+  background: rgba(96, 165, 250, 0.18);
+  z-index: -1;
+}
+
+body:has(.callus) .title-h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+}
+
+body:has(.callus) .title-h3 {
+  margin: 14px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* ---------------------------------------------------------
+   INTRO SECTION
+   --------------------------------------------------------- */
+body:has(.callus) .overview-p {
+  width: min(1180px, calc(100% - 48px));
+  margin: 76px auto 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
+  gap: clamp(38px, 6vw, 90px);
+  align-items: center;
+  box-sizing: border-box;
+}
+
+body:has(.callus) .overview-h1 {
+  position: relative;
+  margin: 0;
+  padding-left: 24px;
+  color: var(--contact-ink);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+  animation: contactFadeUp 0.8s ease both;
+}
+
+body:has(.callus) .overview-h1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  width: 5px;
+  height: 76%;
+  border-radius: 99px;
+  background: linear-gradient(180deg, var(--contact-primary), var(--contact-accent));
+}
+
+body:has(.callus) .overview-p-img {
+  width: 100%;
+  height: 390px;
+  margin: 0;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 28px;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 28px 70px rgba(15, 23, 42, 0.16),
+    0 8px 22px rgba(37, 99, 235, 0.10);
+  animation: contactImageIn 0.9s ease both;
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+body:has(.callus) .overview-p-img:hover {
+  transform: translateY(-7px) scale(1.01);
+  box-shadow:
+    0 34px 80px rgba(15, 23, 42, 0.20),
+    0 12px 30px rgba(37, 99, 235, 0.15);
+}
+
+/* ---------------------------------------------------------
+   CALL / EMAIL CARD
+   --------------------------------------------------------- */
+body:has(.callus) .callus {
+  position: relative;
+  width: min(1180px, calc(100% - 48px));
+  min-height: 160px;
+  height: auto;
+  margin: 55px auto 0;
+  padding: 30px clamp(28px, 5vw, 65px);
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  column-gap: 60px;
+  row-gap: 18px;
+  align-content: center;
+  box-sizing: border-box;
+  text-align: left;
+  flex-direction: initial;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 26px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.96), rgba(240,247,255,0.9));
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.10);
+  overflow: hidden;
+}
+
+body:has(.callus) .callus::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--contact-primary), var(--contact-accent));
+}
+
+body:has(.callus) .callus::after {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  right: -80px;
+  bottom: -115px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.08);
+}
+
+body:has(.callus) .callus h1 {
+  margin: 0;
+  padding: 0 !important;
+  color: var(--contact-primary-dark);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+body:has(.callus) .callus h2 {
+  margin: 8px 0 8px;
+  padding: 0 !important;
+  color: var(--contact-ink);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.45;
+  font-weight: 600;
+}
+
+/* Make the Call Us / Email blocks visually balanced */
+body:has(.callus) .callus h1:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+body:has(.callus) .callus h2:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* ---------------------------------------------------------
+   CONTACT FORM
+   --------------------------------------------------------- */
+body:has(.callus) .form {
+  width: min(100%, 1180px);
+  height: auto;
+  margin: 72px auto 80px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+body:has(.callus) .form1 {
+  position: relative;
+  width: min(680px, 100%);
+  margin: 0;
+  padding: 42px clamp(24px, 5vw, 58px) 18px;
+  display: block;
+  text-align: left;
+  box-sizing: border-box;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow:
+    0 30px 80px rgba(15, 23, 42, 0.12),
+    0 8px 25px rgba(37, 99, 235, 0.06);
+  overflow: hidden;
+}
+
+body:has(.callus) .form1::before {
+  content: "SEND US A MESSAGE";
+  display: block;
+  margin-bottom: 32px;
+  color: var(--contact-primary);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+body:has(.callus) .form1 form {
+  width: 100%;
+}
+
+body:has(.callus) .form1 form > h1 {
+  margin: 0 0 9px !important;
+  color: #1e293b;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+body:has(.callus) .form1 input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 54px;
+  margin: 0 0 22px;
+  padding: 0 17px;
+  text-align: left;
+  color: var(--contact-ink);
+  font: 500 0.95rem Inter, ui-sans-serif, system-ui, sans-serif;
+  background: #f8fafc;
+  border: 1px solid #dbe4ef;
+  border-radius: 13px;
+  outline: none;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.025);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+body:has(.callus) .form1 input::placeholder {
+  color: #94a3b8;
+}
+
+body:has(.callus) .form1 input:hover {
+  border-color: #b9c9df;
+  background: #ffffff;
+}
+
+body:has(.callus) .form1 input:focus {
+  border-color: var(--contact-primary);
+  background: #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.10),
+    0 8px 20px rgba(37, 99, 235, 0.07);
+  transform: translateY(-1px);
+}
+
+body:has(.callus) .form1 .message {
+  width: 100%;
+  height: 145px;
+  padding: 16px 17px;
+  resize: vertical;
+  text-align: left;
+  line-height: 1.5;
+}
+
+body:has(.callus) .message-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  margin: 8px 0 28px;
+  padding: 14px 24px;
+  border: 0;
+  border-radius: 14px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--contact-primary), #3b82f6 55%, var(--contact-accent));
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.23);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+body:has(.callus) .message-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px rgba(37, 99, 235, 0.30);
+  filter: brightness(1.04);
+}
+
+body:has(.callus) .message-btn:active {
+  transform: translateY(-1px);
+}
+
+/* ---------------------------------------------------------
+   FINAL CTA
+   --------------------------------------------------------- */
+body:has(.callus) .about-outerhiring {
+  position: relative;
+  width: 100%;
+  min-height: 245px;
+  height: auto;
+  margin-top: 15px;
+  padding: 42px clamp(24px, 8vw, 110px);
+  box-sizing: border-box;
+  background:
+    radial-gradient(circle at 90% 20%, rgba(34, 211, 238, 0.20), transparent 20rem),
+    linear-gradient(135deg, #0f172a, #173a87 58%, #0e7490);
+  overflow: hidden;
+}
+
+body:has(.callus) .about-outerhiring::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: -120px;
+  bottom: -190px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.18);
+}
+
+body:has(.callus) .about-hiring {
+  position: relative;
+  z-index: 1;
+  min-height: 160px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+body:has(.callus) .about-hiring h1 {
+  max-width: 700px;
+  margin: 0 !important;
+  color: #ffffff !important;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.45rem) !important;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+body:has(.callus) .about-hiringbtn {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 175px;
+  height: 54px;
+  margin: 0 !important;
+  padding: 0 28px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  color: #0f172a;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+body:has(.callus) .about-hiringbtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE â€” TABLET
+   --------------------------------------------------------- */
+@media (max-width: 900px) {
+  body:has(.callus) .overview-p {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    margin-top: 58px;
+  }
+
+  body:has(.callus) .overview-h1 {
+    max-width: 760px;
+  }
+
+  body:has(.callus) .overview-p-img {
+    height: 340px;
+  }
+
+  body:has(.callus) .callus {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  body:has(.callus) .callus h1:nth-of-type(2),
+  body:has(.callus) .callus h2:nth-of-type(2) {
+    grid-column: 1;
+  }
+
+  body:has(.callus) .callus h1:nth-of-type(2) {
+    grid-row: 3;
+    margin-top: 10px;
+  }
+
+  body:has(.callus) .callus h2:nth-of-type(2) {
+    grid-row: 4;
+  }
+
+  body:has(.callus) .about-hiring {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE â€” MOBILE
+   --------------------------------------------------------- */
+@media (max-width: 600px) {
+  body:has(.callus) .title-div {
+    min-height: 175px;
+    padding: 44px 18px 35px;
+  }
+
+  body:has(.callus) .title-h1 {
+    font-size: 2rem;
+  }
+
+  body:has(.callus) .title-h3 {
+    margin-top: 10px;
+    font-size: 0.82rem;
+  }
+
+  body:has(.callus) .overview-p {
+    width: calc(100% - 32px);
+    margin-top: 42px;
+    gap: 28px;
+  }
+
+  body:has(.callus) .overview-h1 {
+    padding-left: 17px;
+    font-size: clamp(1.75rem, 9vw, 2.45rem);
+  }
+
+  body:has(.callus) .overview-p-img {
+    height: 250px;
+    border-radius: 20px;
+  }
+
+  body:has(.callus) .callus {
+    width: calc(100% - 32px);
+    margin-top: 40px;
+    padding: 27px 24px 29px 30px;
+    border-radius: 21px;
+  }
+
+  body:has(.callus) .callus h2 {
+    font-size: 0.94rem;
+    overflow-wrap: anywhere;
+  }
+
+  body:has(.callus) .form {
+    width: 100%;
+    margin: 48px auto 58px;
+    padding: 0 16px;
+  }
+
+  body:has(.callus) .form1 {
+    padding: 31px 20px 8px;
+    border-radius: 22px;
+  }
+
+  body:has(.callus) .form1::before {
+    margin-bottom: 26px;
+  }
+
+  body:has(.callus) .form1 input {
+    height: 51px;
+    margin-bottom: 20px;
+  }
+
+  body:has(.callus) .form1 .message {
+    height: 125px;
+  }
+
+  body:has(.callus) .message-btn {
+    min-height: 52px;
+    margin-bottom: 24px;
+  }
+
+  body:has(.callus) .about-outerhiring {
+    padding: 38px 20px;
+  }
+
+  body:has(.callus) .about-hiring {
+    gap: 25px;
+  }
+
+  body:has(.callus) .about-hiring h1 {
+    font-size: 1.65rem !important;
+  }
+
+  body:has(.callus) .about-hiringbtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  body:has(.callus) .overview-p {
+    width: calc(100% - 24px);
+  }
+
+  body:has(.callus) .callus {
+    width: calc(100% - 24px);
+    padding-left: 25px;
+  }
+
+  body:has(.callus) .form {
+    padding: 0 11px;
+  }
+
+  body:has(.callus) .form1 {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* ---------------------------------------------------------
+   ACCESSIBILITY / ANIMATION
+   --------------------------------------------------------- */
+@keyframes contactFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contactImageIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(.callus) *,
+  body:has(.callus) *::before,
+  body:has(.callus) *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
