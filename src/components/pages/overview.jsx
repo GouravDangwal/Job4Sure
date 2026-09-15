@@ -115,7 +115,7 @@ const overview = () => {
 
             <div className='about-outerhiring'>
                 <div className='about-hiring'>
-                    <h1 className='font-bold ml-10 mt-10 text-3xl text-blue-600'>
+                    <h1>
                     Incredible Recruitment & Staffing Agency
                     </h1>
                     <button onClick={()=>{
